@@ -22,4 +22,4 @@ class BusinessForm(forms.ModelForm):
 class PostMessageForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['image','image_name', 'message']
+        fields = ['message']

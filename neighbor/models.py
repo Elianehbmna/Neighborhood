@@ -105,6 +105,7 @@ class Post(models.Model):
     image_name=models.CharField(max_length=30)
     message=models.TextField(max_length=100,null=True,blank=True)
     estate=models.ForeignKey(Neighbourhood,on_delete=models.CASCADE,null=True,blank=True)
+    user_profile=models.ForeignKey(Profile)
     user=models.ForeignKey(User)
 
     def save_post(self):

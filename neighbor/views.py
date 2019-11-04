@@ -11,7 +11,8 @@ def welcome(request):
     hoods=Neighbourhood.get_neighbourhoods
     est=Follow.objects.get(user = request.user)
     business=Business.get_business_by_estate(est.estate)
-    return render(request, 'welcome.html',{"estates":est,"user":current_user,"hoods":hoods,"business":business})
+    post=Post.objects.all()
+    return render(request, 'welcome.html',{"posts":post,"estates":est,"user":current_user,"hoods":hoods,"business":business})
 
 @login_required(login_url='/accounts/login/')
 def profile(request,profile_id):
@@ -126,6 +127,23 @@ def business_details(request, business_id):
 
     return render(request, 'business-details.html',{"details":details})
 
+@login_required(login_url='/accounts/login/')
+def new_post(request):
+    current_user = request.user
+    posts =Profile.objects.get(user = request.user.id)
+    if request.method =='POST':
+        form = PostMessageForm(request.POST,request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.user = current_user
+            project.user_profile = posts
+            project.save()
+        return redirect('welcome')
+
+    else:
+        form = PostMessageForm()
+
+    return render(request,'new-project.html',{"form":form})
 
 
 def search_results(request):

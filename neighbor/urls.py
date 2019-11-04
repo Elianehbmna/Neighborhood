@@ -13,6 +13,7 @@ urlpatterns=[
     url(r'^unfollow/(\d+)', views.unfollow, name='unfollow'),
     url(r'^new/business/',views.create_business, name='newBusiness'),
     url(r'^business/(\d+)',views.business_details, name='business'),
+    url(r'^post/', views.new_post, name='post'),
     url(r'^search/', views.search_results, name='search_results'),
 ]
 if settings.DEBUG:
