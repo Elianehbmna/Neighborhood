@@ -26,8 +26,7 @@
             <p>Population : {{details.population}}</p>
             <p>Estate : {{details.Neighborhood}}</p>
             <p>Estate Number : {{details.id}}</p>
-            <p>Existing Estate: {{exists.estate.id}}</p>
-
+            
             {% if exists.estate.id == details.id %}
             <a href=" {% url 'allHoods' %}">
                 <button type="button" name="button" class="btn btn-danger btn-md  pull-right  ">Relocate </button>
