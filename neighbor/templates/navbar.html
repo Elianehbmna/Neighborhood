@@ -11,6 +11,11 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="{% url 'welcome' %}">Neighborhood</a>
     </div>
+    <div class="dropdown-content">
+      <a href="/all/hoods">All Hoods</a>
+      <a href="#">Move</a>
+      <a href="/new/business/"> New Businesses</a>
+  </div>
     <div class="col-sm-6 col-md-6">
             {% if user.is_authenticated %}
             <ul>
@@ -28,6 +33,12 @@
                   <li>
                     <a href="/logout">Logout</a>
                   </li>
+                  <li>
+                    <a href="/post">Post</a>
+                </li>
+                  <li>
+                        <a href="{%url 'profile' user.id%}">profile</a>
+                      </li>
                 </ul>
               </li>
             </ul>
