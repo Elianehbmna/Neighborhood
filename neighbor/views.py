@@ -1,10 +1,14 @@
 from django.shortcuts import render,redirect, get_object_or_404
-from django.http  import HttpResponse
+from django.http  import HttpResponse,Http404
 from django.contrib.auth.decorators import login_required
 from .models import Profile,User,Neighbourhood,Follow,Business,Post
 from .forms import *
 
+
 # Create your views here.
+@login_required(login_url='/accounts/login/')
+def index(request):
+    return render(request,'index.html')
 @login_required(login_url='/accounts/login/')
 def welcome(request):
     current_user =request.user
@@ -67,6 +71,7 @@ def unfollow(request,id):
     estate=Neighbourhood.object.get(id=id)
     following=Follow(user=current_user,estate=estate).delete()
     return redirect(welcome)
+
 
 def neighbourhoods(request):
     current_user=request.user

@@ -3,7 +3,8 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns=[
-    url(r'^$',views.welcome,name='welcome'),
+    url(r'^$',views.index,name='index'),
+    url(r'^welcome/',views.welcome,name='welcome'),
     url(r'^profile/(\d+)',views.profile,name = 'profile'),
     url(r'^updateProfile',views.updateProfile,name = 'updateProfile'),
     url(r'^new/hood/$',views.create_neighbourhood, name='newHood'),
