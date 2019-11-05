@@ -40,6 +40,8 @@
             <p>Population : {{details.population}}</p>
             <p>location : {{details.Neighborhood}}</p>
             <p>number of house : {{details.id}}</p>
+            <p>police no : {{details.police_no}}</p>
+            <p>hospital no : {{details.hospital_no}}</p>
             
             {% if exists.estate.id == details.id %}
             <a href=" {% url 'allHoods' %}">

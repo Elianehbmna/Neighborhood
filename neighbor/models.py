@@ -20,6 +20,8 @@ class Neighbourhood(models.Model):
     Neighborhood=models.CharField(max_length=30,null=True)
     Neighborhood_location=models.CharField(max_length=30,null=True)
     population=models.PositiveIntegerField(default=0)
+    police_no=models.PositiveIntegerField(default=112)
+    hospital_no=models.PositiveIntegerField(default=911)
     user=models.ForeignKey(User)
  
     def __str__(self):
