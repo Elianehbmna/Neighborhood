@@ -24,7 +24,6 @@ def profile(request,profile_id):
     Method that fetches a users profile page
     '''
     user=User.objects.get(pk=profile_id)
-    # project = Project.objects.filter(profile = profile_id)
     title = User.objects.get(pk = profile_id).username
     profile = Profile.objects.filter(user = profile_id)
     return render(request,"profile.html",{"profile":profile,"title":title})
